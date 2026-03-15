@@ -12,12 +12,14 @@ My personal **Arch Linux + Hyprland** desktop configuration.
 
 ## ⚙️ Components
 
-* **Window Manager:** Hyprland
-* **Status Bar:** Waybar
-* **Launcher:** Rofi
-* **Terminal:** Kitty
-* **Color Generator:** Wallust
-* **Screenshot Tool:** Swappy
+| Component       | Program  |
+| --------------- | -------- |
+| Window Manager  | Hyprland |
+| Status Bar      | Waybar   |
+| Launcher        | Rofi     |
+| Terminal        | Kitty    |
+| Colors          | Wallust  |
+| Screenshot Tool | Swappy   |
 
 ---
 
@@ -62,39 +64,20 @@ hyprland-dotfiles
 │   ├── swappy
 │   └── gtk-3.0
 │
-├── install.sh      # installs configuration files
-├── update.sh       # pushes config updates to GitHub
-├── screenshot.png  # desktop preview
+├── install.sh
+├── update.sh
+├── screenshot.png
 └── README.md
 ```
 
 ---
 
-## 🔄 Updating (for repository owner)
+## 🔄 Updating (repository owner)
 
-After modifying configs, push changes with:
+If you modify configs and want to push them:
 
 ```bash
 ./update.sh
-```
-
----
-
-## 💻 Requirements
-
-This setup expects the following software installed:
-
-* Hyprland
-* Waybar
-* Rofi
-* Kitty
-* Wallust
-* Swappy
-
-Install them via pacman:
-
-```bash
-sudo pacman -S hyprland waybar rofi kitty swappy
 ```
 
 ---
