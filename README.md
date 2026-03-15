@@ -18,19 +18,30 @@ My personal Arch Linux + Hyprland desktop configuration.
 
 Clone the repository:
 
+```bash
 git clone https://github.com/B2krobbery/hyprland-dotfiles
-
-Enter the directory:
 
 cd hyprland-dotfiles
 
-Make the installer executable:
-
 chmod +x install.sh
 
-Run the installer:
-
 ./install.sh
+
+
+Users can **click the copy button**.
+
+---
+
+## After editing
+
+Run:
+
+```bash
+cd ~/hyprland-dotfiles
+git add README.md
+git commit -m "Improve installation section formatting"
+git push
+
 ## 📁 Structure
 
 dotfiles/ → configuration files for ~/.config  
