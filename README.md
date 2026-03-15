@@ -1,6 +1,6 @@
 # ✨ B2k Hyprland Setup
 
-My personal **Arch Linux + Hyprland** desktop configuration.
+My personal Arch Linux + Hyprland desktop configuration.
 
 ## 🖥️ Preview
 
@@ -8,12 +8,12 @@ My personal **Arch Linux + Hyprland** desktop configuration.
 
 ## ⚙️ Components
 
-* **Window Manager:** Hyprland
-* **Status Bar:** Waybar
-* **Launcher:** Rofi
-* **Terminal:** Kitty
-* **Colors:** Wallust
-* **Screenshot Tool:** Swappy
+- Window Manager: Hyprland
+- Status Bar: Waybar
+- Launcher: Rofi
+- Terminal: Kitty
+- Colors: Wallust
+- Screenshot Tool: Swappy
 
 ## 📦 Installation
 
@@ -31,10 +31,7 @@ Run the installer:
 
 ## 📁 Structure
 
-dotfiles/ → configuration files for ~/.config
+dotfiles/ → configuration files for ~/.config  
 install.sh → installs configs
 
----
-
 ⭐ If you like this setup, feel free to star the repo.
-
