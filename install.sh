@@ -2,9 +2,9 @@
 
 echo "Installing Hyprland environment..."
 
-# Install required packages
+# Install required packages from official repo
 
-sudo pacman -S --needed hyprland waybar kitty rofi swappy wallust
+sudo pacman -S --needed hyprland waybar kitty rofi swappy
 
 echo "Installing Hyprland dotfiles..."
 
@@ -12,20 +12,11 @@ echo "Installing Hyprland dotfiles..."
 
 mkdir -p ~/.config
 
-# Ensure GTK config directory exists
+# Copy all configs safely
 
-mkdir -p ~/.config/gtk-3.0
-
-# Copy configs
-
-cp -r dotfiles/hypr ~/.config/
-cp -r dotfiles/waybar ~/.config/
-cp -r dotfiles/kitty ~/.config/
-cp -r dotfiles/rofi ~/.config/
-cp -r dotfiles/swappy ~/.config/
-cp -r dotfiles/wallust ~/.config/
-cp -r dotfiles/gtk-3.0 ~/.config/
+cp -r dotfiles/* ~/.config/
 
 echo "Dotfiles installed successfully!"
 echo "Restart Hyprland or reboot to apply changes."
+
 
