@@ -1,4 +1,4 @@
-# ✨ Visal Hyprland Setup
+# ✨ B2k Hyprland Setup
 
 My personal **Arch Linux + Hyprland** desktop configuration.
 
