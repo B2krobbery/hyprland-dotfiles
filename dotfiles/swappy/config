@@ -1,0 +1,7 @@
+#config for screen short at screen shorts hehehe
+[Default]
+save_dir=$HOME/Pictures/Screenshots
+save_filename_format=swappy-%Y%m%d-%H%M%S.png
+show_panel=true
+line_size=5
+text_size=20
