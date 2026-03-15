@@ -14,7 +14,6 @@ My personal Arch Linux + Hyprland desktop configuration.
 - Terminal: Kitty
 - Colors: Wallust
 - Screenshot Tool: Swappy
-
 ## 📦 Installation
 
 Clone the repository:
@@ -25,10 +24,13 @@ Enter the directory:
 
 cd hyprland-dotfiles
 
+Make the installer executable:
+
+chmod +x install.sh
+
 Run the installer:
 
 ./install.sh
-
 ## 📁 Structure
 
 dotfiles/ → configuration files for ~/.config  
