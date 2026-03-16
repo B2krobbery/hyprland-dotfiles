@@ -4,10 +4,8 @@ set -e
 
 echo "Starting Hyprland setup..."
 
-# Check if Arch Linux
-
 if ! command -v pacman &> /dev/null; then
-echo "This installer is only for Arch Linux."
+echo "This installer supports Arch Linux only."
 exit 1
 fi
 
@@ -33,23 +31,43 @@ ttf-dejavu
 ttf-liberation 
 noto-fonts 
 network-manager-applet 
-blueman
+blueman 
+zsh 
+thunar 
+thunar-archive-plugin 
+file-roller 
+fastfetch 
+git
 
-# Install wallust if yay exists
+echo "Installing Zsh plugins..."
 
-if command -v yay &> /dev/null; then
-echo "Installing wallust from AUR..."
-yay -S --needed --noconfirm wallust
-else
-echo "yay not installed, skipping wallust"
+mkdir -p ~/.zsh
+
+if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 fi
 
-echo "Installing dotfiles..."
+if [ ! -d ~/.zsh/zsh-syntax-highlighting ]; then
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+fi
+
+echo "Creating directories..."
 
 mkdir -p ~/.config
+mkdir -p ~/Pictures/Screenshots
+mkdir -p ~/Pictures/Wallpapers
+
+echo "Copying dotfiles..."
+
 cp -r dotfiles/* ~/.config/
 
-echo "Setup complete!"
-echo "Reboot or run: start-hyprland"
+if [ -f dotfiles/.zshrc ]; then
+cp dotfiles/.zshrc ~/
+fi
 
+echo "Setting Zsh as default shell..."
+chsh -s /bin/zsh
+
+echo "Installation complete!"
+echo "Restart Hyprland or reboot."
 
