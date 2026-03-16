@@ -5,9 +5,10 @@ set -e
 echo "Starting Hyprland setup..."
 
 # Check if pacman exists
+
 if ! command -v pacman &> /dev/null; then
-    echo "This installer only supports Arch Linux."
-    exit 1
+echo "This installer only supports Arch Linux."
+exit 1
 fi
 
 echo "Updating system..."
@@ -15,30 +16,30 @@ sudo pacman -Syu --noconfirm
 
 echo "Installing required packages..."
 
-sudo pacman -S --needed --noconfirm \
-hyprland \
-waybar \
-kitty \
-rofi \
-swappy \
-swww \
-grim \
-slurp \
-wl-clipboard \
-xdg-desktop-portal-hyprland \
-xdg-user-dirs \
-ttf-font-awesome \
-ttf-dejavu \
-ttf-liberation \
-noto-fonts \
-network-manager-applet \
-blueman \
-zsh \
-thunar \
-thunar-archive-plugin \
-file-roller \
-fastfetch \
-git \
+sudo pacman -S --needed --noconfirm 
+hyprland 
+waybar 
+kitty 
+rofi 
+swappy 
+swww 
+grim 
+slurp 
+wl-clipboard 
+xdg-desktop-portal-hyprland 
+xdg-user-dirs 
+ttf-font-awesome 
+ttf-dejavu 
+ttf-liberation 
+noto-fonts 
+network-manager-applet 
+blueman 
+zsh 
+thunar 
+thunar-archive-plugin 
+file-roller 
+fastfetch 
+git 
 base-devel
 
 echo "Installing yay (AUR helper)..."
@@ -52,8 +53,7 @@ rm -rf yay
 fi
 
 echo "Installing wallust from AUR..."
-
-yay -S --noconfirm wallust
+yay -S --noconfirm wallust-bin
 
 echo "Installing Oh My Zsh..."
 
@@ -63,14 +63,27 @@ fi
 
 echo "Installing Zsh plugins..."
 
-mkdir -p ~/.zsh
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 
-if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+# autosuggestions
+
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+git clone https://github.com/zsh-users/zsh-autosuggestions 
+$ZSH_CUSTOM/plugins/zsh-autosuggestions
 fi
 
-if [ ! -d ~/.zsh/zsh-syntax-highlighting ]; then
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+# syntax highlighting
+
+if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+git clone https://github.com/zsh-users/zsh-syntax-highlighting 
+$ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+fi
+
+echo "Installing Powerlevel10k theme..."
+
+if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git 
+$ZSH_CUSTOM/themes/powerlevel10k
 fi
 
 echo "Creating directories..."
@@ -91,4 +104,4 @@ echo "Setting Zsh as default shell..."
 chsh -s /bin/zsh
 
 echo "Installation complete!"
-echo "Restart your system or start Hyprland."
+echo "Reboot or start Hyprland."
