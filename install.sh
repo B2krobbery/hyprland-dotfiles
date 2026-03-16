@@ -1,3 +1,19 @@
+# Prevent running as root
+if [ "$EUID" -eq 0 ]; then
+    echo "Do NOT run this script with sudo."
+    echo "Run it as a normal user:"
+    echo "./install.sh"
+    exit 1
+fi
+
+# Fix ownership if needed
+if [ -d "$HOME/hyprland-dotfiles" ]; then
+    sudo chown -R "$USER:$USER" "$HOME/hyprland-dotfiles"
+fi
+
+
+
+
 #!/bin/bash
 
 set -e
