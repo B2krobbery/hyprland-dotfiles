@@ -1,22 +1,21 @@
-# Prevent running as root
-if [ "$EUID" -eq 0 ]; then
-    echo "Do NOT run this script with sudo."
-    echo "Run it as a normal user:"
-    echo "./install.sh"
-    exit 1
-fi
-
-# Fix ownership if needed
-if [ -d "$HOME/hyprland-dotfiles" ]; then
-    sudo chown -R "$USER:$USER" "$HOME/hyprland-dotfiles"
-fi
-
-
-
-
 #!/bin/bash
 
 set -e
+
+# Prevent running as root
+
+if [ "$EUID" -eq 0 ]; then
+echo "Do NOT run this script with sudo."
+echo "Run it as a normal user:"
+echo "./install.sh"
+exit 1
+fi
+
+# Fix ownership if repo was cloned with sudo
+
+if [ -d "$HOME/hyprland-dotfiles" ]; then
+sudo chown -R "$USER:$USER" "$HOME/hyprland-dotfiles"
+fi
 
 echo "Starting Hyprland setup..."
 
@@ -84,21 +83,23 @@ echo "Installing Zsh plugins..."
 
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 
+# Ensure directories exist
+
+mkdir -p "$ZSH_CUSTOM/plugins"
+mkdir -p "$ZSH_CUSTOM/themes"
+
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
-git clone https://github.com/zsh-users/zsh-autosuggestions 
-"$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 fi
 
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
-git clone https://github.com/zsh-users/zsh-syntax-highlighting 
-"$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
 
 echo "Installing Powerlevel10k theme..."
 
 if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git 
-"$ZSH_CUSTOM/themes/powerlevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
 fi
 
 echo "Creating directories..."
