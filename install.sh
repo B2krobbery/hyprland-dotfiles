@@ -71,7 +71,7 @@ rm -rf yay
 fi
 
 echo "Installing wallust..."
-yay -S --noconfirm wallust-bin
+yay -S --noconfirm wallust
 
 echo "Installing Oh My Zsh..."
 
