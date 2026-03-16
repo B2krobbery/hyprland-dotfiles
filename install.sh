@@ -16,31 +16,34 @@ sudo pacman -Syu --noconfirm
 
 echo "Installing required packages..."
 
-sudo pacman -S --needed --noconfirm 
-hyprland 
-waybar 
-kitty 
-rofi 
-swappy 
-swww 
-grim 
-slurp 
-wl-clipboard 
-xdg-desktop-portal-hyprland 
-xdg-user-dirs 
-ttf-font-awesome 
-ttf-dejavu 
-ttf-liberation 
-noto-fonts 
-network-manager-applet 
-blueman 
-zsh 
-thunar 
-thunar-archive-plugin 
-file-roller 
-fastfetch 
-git 
+packages=(
+hyprland
+waybar
+kitty
+rofi
+swappy
+swww
+grim
+slurp
+wl-clipboard
+xdg-desktop-portal-hyprland
+xdg-user-dirs
+ttf-font-awesome
+ttf-dejavu
+ttf-liberation
+noto-fonts
+network-manager-applet
+blueman
+zsh
+thunar
+thunar-archive-plugin
+file-roller
+fastfetch
+git
 base-devel
+)
+
+sudo pacman -S --needed --noconfirm "${packages[@]}"
 
 echo "Installing yay (AUR helper)..."
 
@@ -52,7 +55,7 @@ cd ..
 rm -rf yay
 fi
 
-echo "Installing wallust from AUR..."
+echo "Installing wallust..."
 yay -S --noconfirm wallust-bin
 
 echo "Installing Oh My Zsh..."
@@ -65,25 +68,21 @@ echo "Installing Zsh plugins..."
 
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
 
-# autosuggestions
-
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
 git clone https://github.com/zsh-users/zsh-autosuggestions 
-$ZSH_CUSTOM/plugins/zsh-autosuggestions
+"$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 fi
-
-# syntax highlighting
 
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
 git clone https://github.com/zsh-users/zsh-syntax-highlighting 
-$ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+"$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 fi
 
 echo "Installing Powerlevel10k theme..."
 
 if [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git 
-$ZSH_CUSTOM/themes/powerlevel10k
+"$ZSH_CUSTOM/themes/powerlevel10k"
 fi
 
 echo "Creating directories..."
