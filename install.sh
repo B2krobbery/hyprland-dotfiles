@@ -70,4 +70,3 @@ chsh -s /bin/zsh
 
 echo "Installation complete!"
 echo "Restart Hyprland or reboot."
-
