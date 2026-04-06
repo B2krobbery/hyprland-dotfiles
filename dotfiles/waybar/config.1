@@ -6,14 +6,14 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "bluetooth", "battery", "tray", "privacy"],
+  "modules-right": ["pulseaudio", "network", "bluetooth", "battery", "tray"],
 
   "clock": {
-    "format": "  {:%H:%M}",
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-      "format": {
-        "today": "<span color='#ffcc66'><b>{}</b></span>"
+  "format": "  {:%H:%M}",
+  "tooltip-format": "<tt>{calendar}</tt>",
+  "calendar": {
+    "format": {
+      "today": "<span color='#ffcc66'><b>{}</b></span>"
       }
     }
   },
@@ -43,28 +43,5 @@
 
   "tray": {
     "spacing": 10
-  },
-
-  "privacy": {
-  "icon-size": 14,
-  "icon-spacing": 6,
-  "transition-duration": 200,
-
-  "modules": [
-    {
-      "type": "audio-in",
-      "icon-name": "microphone-sensitivity-high-symbolic",
-      "tooltip": true,
-      "tooltip-icon-size": 18
-    },
-    {
-      "type": "audio-out",
-      "icon-name": "audio-speakers-symbolic"
-    },
-    {
-      "type": "screenshare",
-      "icon-name": "screen-share-symbolic"
-    }
-  ]
-}
+  }
 }
